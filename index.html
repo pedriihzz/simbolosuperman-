@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símbolo do Superman - LED Neon</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- SVG do Símbolo Clássico do Superman -->
+        <svg id="superman-led" viewBox="0 0 400 300" class="led-container">
+            <!-- Contorno Externo do Diamante (LED Vermelho) -->
+            <polygon class="led-strip led-red" points="95,30 305,30 375,105 200,275 25,105" />
+
+            <!-- Cavidade 1: Triângulo Esquerdo (LED Amarelo) -->
+            <path class="led-strip led-yellow" d="M 103,48 L 138,48 C 118,68 112,92 118,118 L 62,102 Z" />
+
+            <!-- Cavidade 2: Topo do "S" (LED Amarelo) -->
+            <path class="led-strip led-yellow" d="M 185,48 L 245,48 C 268,62 275,82 275,98 L 165,98 C 148,95 148,62 185,48 Z" />
+
+            <!-- Cavidade 3: Pequeno Triângulo Superior Direito (LED Amarelo) -->
+            <polygon class="led-strip led-yellow" points="272,48 295,48 286,66" />
+
+            <!-- Cavidade 4: Lado Direito do Escudo (LED Amarelo) -->
+            <path class="led-strip led-yellow" d="M 308,58 L 348,102 L 302,148 C 292,130 272,122 248,120 L 292,120 C 295,98 295,78 308,58 Z" />
+
+            <!-- Cavidade 5: Curva Inferior do "S" (LED Amarelo) -->
+            <path class="led-strip led-yellow" d="M 105,152 C 138,165 185,168 238,168 C 258,168 265,185 245,198 C 215,212 185,205 172,195 C 158,205 135,205 122,192 Z" />
+
+            <!-- Cavidade 6: Triângulo Inferior (LED Amarelo) -->
+            <polygon class="led-strip led-yellow" points="145,216 255,216 200,255" />
+        </svg>
+
+        <!-- Botão de Controle -->
+        <button id="toggle-btn" class="power-btn">
+            <span id="btn-text">LIGAR LED</span>
+            <svg class="power-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

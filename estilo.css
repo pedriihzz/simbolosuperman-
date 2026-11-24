@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #070b14;
+    background-image: 
+        linear-gradient(rgba(10, 22, 45, 0.85), rgba(5, 8, 15, 0.95)),
+        repeating-linear-gradient(0deg, transparent, transparent 38px, #0d1b33 38px, #0d1b33 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 78px, #0d1b33 78px, #0d1b33 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+}
+
+.led-container {
+    width: 420px;
+    max-width: 90vw;
+    height: auto;
+    overflow: visible;
+}
+
+/* Fitas de LED no estado DESLIGADO */
+.led-strip {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.35s ease-in-out;
+}
+
+.led-red {
+    stroke: #3a1010;
+    stroke-width: 6.5;
+}
+
+.led-yellow {
+    stroke: #3d330e;
+    stroke-width: 5.5;
+}
+
+/* Fitas de LED no estado LIGADO */
+.led-container.on .led-red {
+    stroke: #ff3b3b;
+    filter: drop-shadow(0 0 4px #ffffff)
+            drop-shadow(0 0 10px #ff1a1a)
+            drop-shadow(0 0 25px #ff0000)
+            drop-shadow(0 0 45px #b30000);
+}
+
+.led-container.on .led-yellow {
+    stroke: #fff04d;
+    filter: drop-shadow(0 0 4px #ffffff)
+            drop-shadow(0 0 10px #ffd000)
+            drop-shadow(0 0 22px #ffaa00);
+}
+
+/* Efeito sutil de corrente elétrica */
+.led-container.on {
+    animation: neon-flicker 4s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 95%, 100% {
+        opacity: 1;
+    }
+    96% {
+        opacity: 0.9;
+    }
+    97% {
+        opacity: 1;
+    }
+    98% {
+        opacity: 0.94;
+    }
+}
+
+/* Estilo do Botão */
+.power-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #7a869a;
+    background-color: #0e1624;
+    border: 2px solid #1e2d45;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.power-icon {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.power-btn:hover {
+    border-color: #3b5580;
+    color: #c5d1e6;
+}
+
+/* Botão quando o LED está LIGADO */
+.power-btn.active {
+    color: #ffffff;
+    background-color: #0b2538;
+    border-color: #00f0ff;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.5), inset 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.power-btn.active .power-icon {
+    color: #00f0ff;
+    filter: drop-shadow(0 0 5px #00f0ff);
+}
